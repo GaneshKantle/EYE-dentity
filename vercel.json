@@ -1,32 +1,8 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
   "rewrites": [
     {
-      "source": "/((?!assets|favicon|robots|icon|forensic-lab-bg|placeholder-criminal|header).*)",
+      "source": "/((?!assets|favicon|robots|icon|forensic-lab-bg|placeholder-criminal|header|.*\\.(png|jpg|jpeg|gif|svg|ico|css|js|woff|woff2|ttf|eot)).*)",
       "destination": "/index.html"
     }
-  ],
-  "headers": [
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/:path*.(png|jpg|jpeg|gif|svg|ico)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-    
   ]
 }

@@ -157,7 +157,7 @@
     @apply min-h-screen flex items-center justify-center p-4;
     background: 
       linear-gradient(135deg, hsl(var(--background) / 0.95) 0%, hsl(var(--background) / 0.85) 100%),
-      url('/src/assets/forensic-lab-bg.jpg');
+      url('/forensic-lab-bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
