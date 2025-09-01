@@ -178,116 +178,17 @@ const FaceSketch: React.FC = () => {
     }
   };
 
-  // Generate asset names based on category
+  // Generate simple numeric asset names
   const generateAssetNames = (category: string, folder: string, maxAssets: number): Record<string, string> => {
-    const names: Record<string, Record<string, string>> = {
-      'face-shapes': {
-        '01': 'Oval Face',
-        '02': 'Round Face',
-        '03': 'Square Face',
-        '04': 'Heart Face',
-        '05': 'Diamond Face',
-        '06': 'Triangle Face',
-        '07': 'Rectangle Face',
-        '08': 'Oblong Face',
-        '09': 'Long Face',
-        '10': 'Wide Face'
-      },
-      'eyes': {
-        '01': 'Almond Eyes',
-        '02': 'Round Eyes',
-        '03': 'Hooded Eyes',
-        '04': 'Upturned Eyes',
-        '05': 'Downturned Eyes',
-        '06': 'Wide-Set Eyes',
-        '07': 'Close-Set Eyes',
-        '08': 'Monolid Eyes',
-        '09': 'Deep-Set Eyes',
-        '10': 'Prominent Eyes',
-        '11': 'Small Eyes',
-        '12': 'Large Eyes'
-      },
-      'eyebrows': {
-        '01': 'Straight Brows',
-        '02': 'Arched Brows',
-        '03': 'Thick Brows',
-        '04': 'Thin Brows',
-        '05': 'Unibrow',
-        '06': 'Bushy Brows',
-        '07': 'Angled Brows',
-        '08': 'Rounded Brows',
-        '09': 'Sparse Brows',
-        '10': 'Full Brows',
-        '11': 'Natural Brows',
-        '12': 'Groomed Brows'
-      },
-      'nose': {
-        '01': 'Straight Nose',
-        '02': 'Roman Nose',
-        '03': 'Button Nose',
-        '04': 'Wide Nose',
-        '05': 'Narrow Nose',
-        '06': 'Aquiline Nose',
-        '07': 'Snub Nose',
-        '08': 'Crooked Nose',
-        '09': 'Long Nose',
-        '10': 'Short Nose',
-        '11': 'Pointed Nose',
-        '12': 'Flat Nose'
-      },
-      'lips': {
-        '01': 'Full Lips',
-        '02': 'Thin Lips',
-        '03': 'Cupid\'s Bow',
-        '04': 'Wide Lips',
-        '05': 'Small Lips',
-        '06': 'Downturned Lips',
-        '07': 'Upturned Lips',
-        '08': 'Heart Lips',
-        '09': 'Bow Lips',
-        '10': 'Natural Lips',
-        '11': 'Plump Lips',
-        '12': 'Delicate Lips'
-      },
-      'hair': {
-        '01': 'Short Straight',
-        '02': 'Medium Wavy',
-        '03': 'Long Curly',
-        '04': 'Buzz Cut',
-        '05': 'Afro',
-        '06': 'Balding',
-        '07': 'Ponytail',
-        '08': 'Dreadlocks',
-        '09': 'Long Straight',
-        '10': 'Short Curly',
-        '11': 'Medium Straight',
-        '12': 'Long Wavy'
-      },
-      'facial-hair': {
-        '01': 'Clean Shaven',
-        '02': '5 O\'Clock Shadow',
-        '03': 'Goatee',
-        '04': 'Full Beard',
-        '05': 'Mustache',
-        '06': 'Van Dyke',
-        '07': 'Soul Patch',
-        '08': 'Handlebar',
-        '09': 'Stubble',
-        '10': 'Chin Strap',
-        '11': 'Sideburns',
-        '12': 'Full Goatee'
-      },
-      'accessories': {
-        '01': 'Reading Glasses',
-        '02': 'Sunglasses',
-        '03': 'Baseball Cap',
-        '04': 'Beanie',
-        '05': 'Earrings',
-        '06': 'Scarf'
-      }
-    };
-
-    return names[category] || {};
+    const names: Record<string, string> = {};
+    
+    // Generate simple numeric names (01, 02, 03, etc.)
+    for (let i = 1; i <= maxAssets; i++) {
+      const assetNumber = i.toString().padStart(2, '0');
+      names[assetNumber] = assetNumber;
+    }
+    
+    return names;
   };
 
   // Generate tags based on category
@@ -329,8 +230,10 @@ const FaceSketch: React.FC = () => {
           // Generate assets for this category
           for (let i = 1; i <= categoryConfig.maxAssets; i++) {
             const assetNumber = i.toString().padStart(2, '0');
-            const assetName = assetNames[assetNumber] || `${categoryConfig.name} ${assetNumber}`;
+            const assetName = assetNumber; // Use simple numeric name (01, 02, 03, etc.)
             const path = `/assets/${categoryConfig.folder}/${assetNumber}.png`;
+            
+            // Asset path for face sketch features
             
             assets.push({
               id: `${categoryKey}-${assetNumber}`,
@@ -352,6 +255,7 @@ const FaceSketch: React.FC = () => {
 
         setFeatureCategories(categories);
         setAssetsLoading(false);
+        // Assets loaded successfully
       } catch (error) {
         console.error('Error loading assets:', error);
         setAssetsError('Failed to load assets. Please refresh the page.');
@@ -445,6 +349,7 @@ const FaceSketch: React.FC = () => {
       img.src = feature.asset.path;
       
       img.onload = () => {
+        // Canvas image loaded successfully
         ctx.save();
         
         // Apply transformations
@@ -512,6 +417,10 @@ const FaceSketch: React.FC = () => {
         }
         
         ctx.restore();
+      };
+      
+      img.onerror = () => {
+        console.error(`Failed to load canvas image: ${feature.asset.path}`);
       };
     });
 

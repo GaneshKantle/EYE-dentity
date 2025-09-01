@@ -247,6 +247,10 @@ const RightPanel: React.FC<RightPanelProps> = ({
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
                           loading="lazy"
                           draggable={false}
+                          onError={(e) => {
+                            console.error(`Failed to load asset image: ${asset.path}`);
+                            e.currentTarget.style.display = 'none';
+                          }}
                         />
                       </div>
                       

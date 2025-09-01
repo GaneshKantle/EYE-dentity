@@ -8,7 +8,7 @@ import { useToast } from '@/hooks/use-toast';
 import { faceAPI } from '@/services/api';
 import { useAppStore } from '@/store/appStore';
 import { Card, CardContent } from '@/components/ui/card';
-import iconImage from '../assets/icon.png';
+// Icon is now served from public directory
 
 export const FaceRecognition = () => {
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
@@ -92,7 +92,7 @@ export const FaceRecognition = () => {
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="w-16 h-16 flex items-center justify-center">
               <img 
-                src={iconImage} 
+                src="/icon.png" 
                 alt="EYE'dentify Logo" 
                 className="w-full h-full object-contain"
               />

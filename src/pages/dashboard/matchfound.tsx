@@ -3,7 +3,7 @@ import { CheckCircle, User, Search, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { useAppStore } from '@/store/appStore';
-// import placeholderCriminal from '@/assets/placeholder-criminal.jpg';
+// Placeholder image is now served from public directory
 
 export const MatchFound = () => {
   const navigate = useNavigate();
@@ -28,7 +28,7 @@ export const MatchFound = () => {
       age: 32,
       description: 'Suspected in multiple fraud cases',
       location: 'New York, NY',
-      image: placeholderCriminal,
+      image: "/placeholder-criminal.jpg",
       criminalRecord: {
         charges: ['Fraud', 'Identity Theft'],
         lastSeen: '2024-01-15',

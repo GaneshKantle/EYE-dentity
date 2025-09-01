@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast';
 import { authAPI } from '@/services/api';
 import { useAuthStore } from '@/store/authStore';
 import { motion } from 'framer-motion';
-import iconImage from '../../components/assets/icon.png';
+// Icon is now served from public directory
 
 interface LoginForm {
   email: string;
@@ -94,7 +94,7 @@ export const Login = () => {
               className="mx-auto w-16 h-16 flex items-center justify-center mb-4"
             >
               <img 
-                src={iconImage} 
+                src="/icon.png" 
                 alt="EYE'dentify Logo" 
                 className="w-full h-full object-contain"
               />

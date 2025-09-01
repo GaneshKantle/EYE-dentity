@@ -2,7 +2,7 @@ import { Shield, Users, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuthStore } from '@/store/authStore';
 import { Badge } from '@/components/ui/badge';
-import iconImage from '../../components/assets/icon.png';
+// Icon is now served from public directory
 
 export const Header = () => {
   const { user } = useAuthStore();
@@ -11,7 +11,7 @@ export const Header = () => {
     <>
       {/* Header Background Image - Separately positioned below navbar */}
       <div className="w-full h-96 bg-cover bg-center" style={{
-        backgroundImage: `url(./src/components/assets/forensic-lab-bg.jpg)`,
+        backgroundImage: `url(/forensic-lab-bg.jpg)`,
         backgroundSize: 'cover'
       }} />
 

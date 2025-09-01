@@ -12,7 +12,7 @@ import {
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { useLayout } from './Layout';
 import { Sidebar } from '@/pages/dashboard/sidebar';
-import iconImage from '../assets/icon.png';
+// Icon is now served from public directory
 
 export const Navbar = () => {
   const location = useLocation();
@@ -57,7 +57,7 @@ export const Navbar = () => {
               <Link to="/dashboard" className="flex items-center space-x-2 sm:space-x-3">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0">
                   <img 
-                    src={iconImage} 
+                    src="/icon.png" 
                     alt="EYE'dentify Logo" 
                     className="w-full h-full object-contain"
                   />
