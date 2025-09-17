@@ -10,7 +10,7 @@ import Login from "@/pages/dashboard/login";
 import Register from "@/pages/dashboard/register";
 import Dashboard from "@/pages/Dashboard";
 import FaceRecognition from "@/components/facerecognition/FaceRecognition";
-import FaceSketch from "@/components/facesketch/FaceSketch";
+import FaceSketch from "@/pages/FaceSketch";
 import CriminalDatabase from "@/components/criminaldb/CriminalDatabase";
 import MatchFound from "@/pages/dashboard/matchfound";
 import MatchNotFound from "@/pages/dashboard/matchnotfound";
